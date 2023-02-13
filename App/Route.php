@@ -7,13 +7,13 @@
         protected function initRoutes(){
             $routes['home'] = array(
                 'route' => '/',
-                'controller' => 'indexController',
+                'controller' => 'IndexController',
                 'action' =>  'index'
             );
 
             $routes['sobre_nos']= array(
                 'route' => '/sobre_nos',
-                'controller' => 'indexController',
+                'controller' => 'IndexController',
                 'action' => 'sobreNos'
             );
             $this->setRoutes($routes);
