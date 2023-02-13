@@ -32,12 +32,15 @@
         }
 
         public function run($url){
-            foreach($this->getRoutes() as $key => $route){
+            foreach($this->getRoutes() as $path => $route){
                 if($url == $route['route']){
                     $class = "App\\Controllers\\".ucfirst($route['controller']);
-
+                    
+                    // instanciando uma classe de forma dinâmica
                     $controller = new $class;
+                    // chamando uma função de forma dinâmina na classe dinâmica
                     $action = $route['action'];
+                    // usando o valor contido na variavel action para chamar uma função
                     $controller->$action() ;
 
                 }
