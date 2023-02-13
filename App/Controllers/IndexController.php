@@ -24,7 +24,6 @@ class IndexController{
             $classAtual = get_class($this);
             $classAtual = str_replace('App\\Controllers\\', '', $classAtual);
             $classAtual =  strtolower( str_replace('Controller', '', $classAtual));
-            echo get_class($this);
             require_once "../App/Views/".$classAtual."/".$view.".phtml";
         }
     }
