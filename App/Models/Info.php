@@ -1,13 +1,7 @@
 <? 
     namespace App\Models;
-    // Testando model:
-    class Info{
-        protected $db;
-
-        public function __construct(\PDO $db){
-            $this->db = $db;
-
-        }
+    use DHF\Model\Model;
+    class Info extends Model{ 
 
         public function getInfo(){
             $query="SELECT 

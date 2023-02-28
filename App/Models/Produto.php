@@ -1,13 +1,9 @@
 <? 
     namespace App\Models;
-    // Testando model:
-    class Produto{
-        protected $db;
 
-        public function __construct(\PDO $db){
-            $this->db = $db;
+    use DHF\Model\Model;
 
-        }
+    class Produto extends Model{
 
         public function getProdutos(){
             $query="SELECT 
