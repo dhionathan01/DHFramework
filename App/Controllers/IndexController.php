@@ -2,31 +2,32 @@
 
     namespace App\Controllers;
 
+    // Recursos do miniFramework
     use DHF\Controller\Action;
-    use App\Connection;
-    use App\Models\Produto;
+    use DHF\Model\Container;
 
-    class IndexController extends Action{
+    // Models
+    use App\Models\Produto;
+    use App\Models\Info;
+
+class IndexController extends Action{
 
             public function index() {
-                //$this->view->dados = array('Sofá', 'Cadeira', 'Cama');
-
-                // instância da conexão
-                // Por ser um método statico é possível chamalo sem criar a classe:
-
-                $connection = Connection::getDb();
-                // instanciar modelo
-                $produto = new Produto($connection);
+                $produto = Container::getModel('Produto');
 
                 $produtos = $produto->getProdutos();
 
                 $this->view->dados = $produtos;
-
                 $this->render('index', 'layout1');
             }
             public function sobreNos() {
-                //$this->view->dados = array('Notebook', 'Smartphone');
-                $this->render('index', 'layout2');
+                $info = Container::getModel('Info');
+
+                $informacoes = $info->getInfo();
+
+                $this->view->dados = $informacoes;
+                $this->render('sobreNos', 'layout1');
+
             }
 
         }
